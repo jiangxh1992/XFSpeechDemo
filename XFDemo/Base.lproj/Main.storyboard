@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,8 +20,63 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgM-5u-Ebc">
+                                <rect key="frame" x="16" y="20" width="343" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="KAC-eU-DXo"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQM-RU-Npy">
+                                <rect key="frame" x="36" y="370" width="303" height="60"/>
+                                <color key="backgroundColor" red="0.18695551156997681" green="0.68891733884811401" blue="0.087777234613895416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="PRB-uj-QfV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="开始合成">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="syn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uyo-jJ-GmY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBb-Y7-U6a">
+                                <rect key="frame" x="36" y="460" width="303" height="60"/>
+                                <color key="backgroundColor" red="0.99794691801071167" green="0.43452978134155273" blue="0.0065630609169602394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HfP-Ya-rjU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="开始测评">
+                                    <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="eva:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QAa-Vn-EGz"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QBb-Y7-U6a" firstAttribute="top" secondItem="GQM-RU-Npy" secondAttribute="bottom" constant="30" id="Hd1-eu-s4k"/>
+                            <constraint firstItem="LgM-5u-Ebc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IQf-0p-Pd3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LgM-5u-Ebc" secondAttribute="trailing" id="LzQ-Jo-dhr"/>
+                            <constraint firstItem="QBb-Y7-U6a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="O1J-Ix-YMj"/>
+                            <constraint firstItem="GQM-RU-Npy" firstAttribute="top" secondItem="LgM-5u-Ebc" secondAttribute="bottom" constant="50" id="avq-HR-lTA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QBb-Y7-U6a" secondAttribute="trailing" constant="20" id="d3g-wC-2cm"/>
+                            <constraint firstItem="LgM-5u-Ebc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dOv-Nv-W1I"/>
+                            <constraint firstItem="GQM-RU-Npy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="hbL-Mx-qzg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GQM-RU-Npy" secondAttribute="trailing" constant="20" id="wdq-CY-yoV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnEvaluate" destination="QBb-Y7-U6a" id="xEh-eC-Tc4"/>
+                        <outlet property="btnSynthesize" destination="GQM-RU-Npy" id="uHa-Jf-ZLQ"/>
+                        <outlet property="text" destination="LgM-5u-Ebc" id="Eue-wf-Dei"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

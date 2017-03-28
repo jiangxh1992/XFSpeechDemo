@@ -26,6 +26,7 @@
 		D24136F11E6A7EC700690921 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24136F01E6A7EC700690921 /* QuartzCore.framework */; };
 		D24136F31E6A7ED400690921 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24136F21E6A7ED400690921 /* CoreGraphics.framework */; };
 		D24136FC1E6A810400690921 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24136FB1E6A810400690921 /* iflyMSC.framework */; };
+		D2971F9E1E8A672D0010B177 /* XFSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = D2971F9D1E8A672D0010B177 /* XFSingleton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		D24136F21E6A7ED400690921 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D24136F41E6A7F8200690921 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = ../iflyMSC.framework; sourceTree = "<group>"; };
 		D24136FB1E6A810400690921 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		D2971F9C1E8A672D0010B177 /* XFSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFSingleton.h; sourceTree = "<group>"; };
+		D2971F9D1E8A672D0010B177 /* XFSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFSingleton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 				D24136AE1E6A7D3C00690921 /* AppDelegate.m */,
 				D24136B01E6A7D3C00690921 /* ViewController.h */,
 				D24136B11E6A7D3C00690921 /* ViewController.m */,
+				D2971F9C1E8A672D0010B177 /* XFSingleton.h */,
+				D2971F9D1E8A672D0010B177 /* XFSingleton.m */,
 				D24136B31E6A7D3C00690921 /* Main.storyboard */,
 				D24136B61E6A7D3C00690921 /* Assets.xcassets */,
 				D24136B81E6A7D3C00690921 /* LaunchScreen.storyboard */,
@@ -331,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D24136B21E6A7D3C00690921 /* ViewController.m in Sources */,
+				D2971F9E1E8A672D0010B177 /* XFSingleton.m in Sources */,
 				D24136AF1E6A7D3C00690921 /* AppDelegate.m in Sources */,
 				D24136AC1E6A7D3C00690921 /* main.m in Sources */,
 			);
@@ -582,6 +588,7 @@
 				D24136D61E6A7D3D00690921 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D24136D71E6A7D3D00690921 /* Build configuration list for PBXNativeTarget "XFDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -590,6 +597,7 @@
 				D24136D91E6A7D3D00690921 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D24136DA1E6A7D3D00690921 /* Build configuration list for PBXNativeTarget "XFDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +606,7 @@
 				D24136DC1E6A7D3D00690921 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
