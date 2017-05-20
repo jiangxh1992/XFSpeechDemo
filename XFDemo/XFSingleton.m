@@ -10,7 +10,7 @@
 
 
 @interface XFSingleton()<IFlySpeechSynthesizerDelegate,IFlySpeechEvaluatorDelegate>
-
+@property(nonatomic, copy) NSString *people;
 @end
 @implementation XFSingleton
 
@@ -23,19 +23,18 @@
     return sharedInstance;
 }
 
-+ (void)xf_AudioInit {
++ (void)xf_AudioInitWithAppID:(NSString *)appid {
     // 初始化讯飞应用
     NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",@"587f6174"];
     [IFlySpeechUtility createUtility:initString];
-    
-    id syn = [XFSingleton Ins].iFlySpeechSynthesizer;
-    id eva = [XFSingleton Ins].iFlySpeechEvaluator;
-#pragma unused(syn)
-#pragma unused(eva)
 }
 + (void)xf_AudioSynthesizeOfText:(NSString *)text {
     // 1.开始合成说话
     [[XFSingleton Ins].iFlySpeechSynthesizer startSpeaking:text];
+}
++ (void)xf_AudioSynthesizeOfText:(NSString *)text fromPeople:(NSString *)people{
+    [[XFSingleton Ins] setPeople:people];
+    [XFSingleton xf_AudioSynthesizeOfText:text];
 }
 + (void)xf_AudioEvaluationOfText:(NSString *)text callback:(void (^)(CGFloat))callback{
     // 2.开始语音测评
@@ -59,13 +58,24 @@
         // 音量【0-100】
         [_iFlySpeechSynthesizer setParameter:@"50" forKey:[IFlySpeechConstant VOLUME]];
         // 发音人【小燕：xiaoyan；小宇：xiaoyu；凯瑟琳：catherine；亨利：henry；玛丽：vimary；小研：vixy；小琪：vixq；小峰：vixf；小梅：vixl；小莉：vixq；小蓉(四川话)：vixr；小芸：vixyun；小坤：vixk；小强：vixqa；小莹：vixying；小新：vixx；楠楠：vinn；老孙：vils】
-        [_iFlySpeechSynthesizer setParameter:@"xiaoyan" forKey:[IFlySpeechConstant VOICE_NAME]];
+        if (!_people) {
+            _people = @"xiaoyan";
+        }
+        [_iFlySpeechSynthesizer setParameter:_people forKey:[IFlySpeechConstant VOICE_NAME]];
         // 音频采样率【8000或16000】
         [_iFlySpeechSynthesizer setParameter:@"8000" forKey:[IFlySpeechConstant SAMPLE_RATE]];
         // 保存音频路径(默认在Document目录下)
         [_iFlySpeechSynthesizer setParameter:@"tts.pcm" forKey:[IFlySpeechConstant TTS_AUDIO_PATH]];
     }
     return _iFlySpeechSynthesizer;
+}
+
+/**
+ * 设置发音人
+ */
+- (void)setPeople:(NSString *)people {
+    _people = people;
+    _iFlySpeechSynthesizer = nil;
 }
 
 /**

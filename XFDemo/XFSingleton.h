@@ -20,7 +20,8 @@ typedef void (^XFAudioEvaCallback)(CGFloat score);
 
 + (instancetype)Ins;
 
-+ (void)xf_AudioInit;
++ (void)xf_AudioInitWithAppID: (NSString *)appid;
++ (void)xf_AudioSynthesizeOfText: (NSString *)text fromPeople:(NSString *)people;
 + (void)xf_AudioSynthesizeOfText: (NSString *)text;
 + (void)xf_AudioEvaluationOfText: (NSString *)text callback:(void(^)(CGFloat score))callback;
 
