@@ -28,8 +28,8 @@
     [XFSDK xf_AudioSynthesizeOfText:_text.text fromPeople:@"xiaoyu"];
 }
 - (IBAction)eva:(id)sender {
-    [XFSDK xf_AudioEvaluationOfText:_text.text callback:^(CGFloat score) {
-        _text.text = [NSString stringWithFormat:@"%f", score];
+    [XFSDK xf_AudioRecognizerResult:^(NSString *resText) {
+        _text.text = resText;
     }];
 }
 

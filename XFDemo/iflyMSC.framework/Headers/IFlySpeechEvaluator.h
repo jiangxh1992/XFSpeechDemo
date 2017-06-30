@@ -25,7 +25,7 @@
  *
  *  @return 别对象的单例
  */
-+ (instancetype)sharedInstance;
++ (id)sharedInstance;
 
 /*!
  *  销毁评测对象。

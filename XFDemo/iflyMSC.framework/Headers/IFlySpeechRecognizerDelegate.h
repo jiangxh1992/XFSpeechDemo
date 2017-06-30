@@ -63,7 +63,7 @@ typedef void(^IFlyOnBuildFinishCompletionHandler)(NSString* grammarId,IFlySpeech
  *  音量变化回调
  *    在录音过程中，回调音频的音量。
  *
- *  @param volume -[out] 音量，范围从0-30
+ *  @param volume -[out] 音量，范围从0-100
  */
 - (void) onVolumeChanged: (int)volume;
 

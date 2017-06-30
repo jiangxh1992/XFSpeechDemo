@@ -16,4 +16,6 @@
 + (void)xf_AudioSynthesizeOfText: (NSString *)text;
 /* 语音测评 */
 + (void)xf_AudioEvaluationOfText: (NSString *)text callback:(void(^)(CGFloat score))callback;
+/* 语音听写 */
++ (void)xf_AudioRecognizerResult: (void(^)(NSString *resText))callback;
 @end

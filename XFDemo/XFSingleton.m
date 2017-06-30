@@ -9,7 +9,7 @@
 #import "XFSingleton.h"
 
 
-@interface XFSingleton()<IFlySpeechSynthesizerDelegate,IFlySpeechEvaluatorDelegate>
+@interface XFSingleton()<IFlySpeechSynthesizerDelegate,IFlySpeechEvaluatorDelegate,IFlySpeechRecognizerDelegate>
 @property(nonatomic, copy) NSString *people;
 @end
 @implementation XFSingleton
@@ -28,20 +28,28 @@
     NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",@"587f6174"];
     [IFlySpeechUtility createUtility:initString];
 }
+
 + (void)xf_AudioSynthesizeOfText:(NSString *)text {
     // 1.开始合成说话
     [[XFSingleton Ins].iFlySpeechSynthesizer startSpeaking:text];
 }
-+ (void)xf_AudioSynthesizeOfText:(NSString *)text fromPeople:(NSString *)people{
++ (void)xf_AudioSynthesizeOfText:(NSString *)text fromPeople:(NSString *)people {
     [[XFSingleton Ins] setPeople:people];
     [XFSingleton xf_AudioSynthesizeOfText:text];
 }
-+ (void)xf_AudioEvaluationOfText:(NSString *)text callback:(void (^)(CGFloat))callback{
+
++ (void)xf_AudioEvaluationOfText:(NSString *)text callback:(void (^)(CGFloat))callback {
     // 2.开始语音测评
     NSData *textData = [text dataUsingEncoding:NSUTF8StringEncoding];
     [[XFSingleton Ins].iFlySpeechEvaluator startListening:textData params:nil];
     
     [XFSingleton Ins].xf_evacallback = callback;
+}
+
++ (void)xf_AudioRecognizerResult:(void (^)(NSString *))callback {
+    // 3.开始语音听写
+    [[XFSingleton Ins].iFlySpeechRecognizer startListening];
+    [XFSingleton Ins].xf_recogcallback = callback;
 }
 
 #pragma -mark 语音合成
@@ -133,6 +141,42 @@
 }
 
 /**
+ * 音量变化回调
+ */
+- (void)onVolumeChanged:(int)volume buffer:(NSData *)buffer {
+    NSLog(@"音量变化...");
+}
+
+/**
+ * 取消
+ */
+- (void)onCancel {
+    NSLog(@"正在取消...");
+}
+
+#pragma -mark 语音听写
+
+- (IFlySpeechRecognizer *)iFlySpeechRecognizer {
+    if (!_iFlySpeechRecognizer) {
+        _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];
+        _iFlySpeechRecognizer.delegate = self;
+        // 设置听写模式
+        [_iFlySpeechRecognizer setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
+        // 设置录音保存文件名
+        [_iFlySpeechRecognizer setParameter:@"asrview.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
+    }
+    return _iFlySpeechRecognizer;
+}
+/**
+ *音量回调函数 volume 0-30
+ */
+- (void) onVolumeChanged: (int)volume {
+    NSLog(@"Volume:%d",volume);
+}
+
+
+#pragma -mark 语音测评和听写回调
+/**
  * 开始说话回调
  */
 - (void)onBeginOfSpeech {
@@ -151,7 +195,6 @@
  */
 - (void)onResults:(NSData *)results isLast:(BOOL)isLast {
     NSLog(@"测评结果:%@",results);
-    [XFSingleton Ins].xf_evacallback(0.00);
 }
 
 /**
@@ -159,20 +202,6 @@
  */
 - (void)onError:(IFlySpeechError *)errorCode {
     NSLog(@"语音测评出错:%@",errorCode);
-}
-
-/**
- * 音量变化回调
- */
-- (void)onVolumeChanged:(int)volume buffer:(NSData *)buffer {
-    NSLog(@"音量变化...");
-}
-
-/**
- * 取消
- */
-- (void)onCancel {
-    NSLog(@"正在取消...");
 }
 
 @end

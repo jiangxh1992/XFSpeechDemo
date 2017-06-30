@@ -63,14 +63,6 @@
 +(NSString*) GRAMMARTYPE;
 
 /*!
- *  语记SDK专用参数，用于设置本地默认资源路径
- *
- *  @return 本地默认资源路径key字符串
- */
-+(NSString*) PLUS_LOCAL_DEFAULT_RES_PATH;
-
-#pragma mark -
-/*!
  *  资源存放路径
  *
  *  @param path 设置的路径
@@ -79,12 +71,5 @@
  */
 +(NSString*) generateResourcePath:(NSString *)path;
 
-/**
- *  获得离线发音人对应的id
- *
- *  @param voiceName 发音人名称
- *
- *  @return 有，发音人对应的id；无，返回nil
- */
-+(NSString*) identifierForVoiceName:(NSString*)voiceName;
+
 @end

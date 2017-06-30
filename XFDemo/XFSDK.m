@@ -22,5 +22,7 @@
 + (void)xf_AudioEvaluationOfText:(NSString *)text callback:(void (^)(CGFloat))callback {
     [XFSingleton xf_AudioEvaluationOfText:text callback:callback];
 }
-
++ (void)xf_AudioRecognizerResult:(void (^)(NSString *))callback {
+    [XFSingleton xf_AudioRecognizerResult:callback];
+}
 @end

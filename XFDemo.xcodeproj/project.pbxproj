@@ -77,6 +77,7 @@
 		D24136F21E6A7ED400690921 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D24136F41E6A7F8200690921 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = ../iflyMSC.framework; sourceTree = "<group>"; };
 		D24136FB1E6A810400690921 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		D2B56D871EF01E8800D9616C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		D2DD61371E990EEB003ABC75 /* XF.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XF.mm; sourceTree = "<group>"; };
 		D2DD61391E990EFB003ABC75 /* XFSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFSDK.m; sourceTree = "<group>"; };
 		D2DD613A1E990EFB003ABC75 /* XFSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFSDK.h; sourceTree = "<group>"; };
@@ -192,6 +193,7 @@
 		D24136DF1E6A7E5F00690921 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D2B56D871EF01E8800D9616C /* libc++.tbd */,
 				D24136F41E6A7F8200690921 /* iflyMSC.framework */,
 				D24136F21E6A7ED400690921 /* CoreGraphics.framework */,
 				D24136F01E6A7EC700690921 /* QuartzCore.framework */,

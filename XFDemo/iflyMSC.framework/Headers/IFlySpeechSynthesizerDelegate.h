@@ -44,11 +44,9 @@
 /**
  *  播放进度回调
  *
- *  @param progress 当前播放进度，0-100
- *  @param beginPos 当前播放文本的起始位置，0-100
- *  @param endPos 当前播放文本的结束位置，0-100
+ *  @param progress 播放进度，0-100
  */
-- (void) onSpeakProgress:(int) progress beginPos:(int)beginPos endPos:(int)endPos;
+- (void) onSpeakProgress:(int) progress;
 
 /**
  *  暂停播放回调
@@ -57,13 +55,12 @@
 
 /**
  *  恢复播放回调
- *  注意：此回调方法SDK内部不执行，播放恢复全部在onSpeakBegin中执行
  */
 - (void) onSpeakResumed;
 
 /**
  *  正在取消回调
- * 注意：此回调方法SDK内部不执行
+ * 当调用`cancel`之后会回调此函数
  */
 - (void) onSpeakCancel;
 

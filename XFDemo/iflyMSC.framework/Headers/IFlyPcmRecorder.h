@@ -60,16 +60,14 @@
 /**
  *  录音委托对象
  */
-@property (nonatomic,assign) id<IFlyPcmRecorderDelegate> delegate;
-
-@property (nonatomic,assign) BOOL isNeedDeActive;// 是否在录音结束后发送Deactive通知，默认是发送
+@property (assign) id<IFlyPcmRecorderDelegate> delegate;
 
 /**
  *  单例模式
  *
  *  @return 返回录音对象单例
  */
-+ (instancetype) sharedInstance;
++ (id) sharedInstance;
 
 /**
  *  开始录音
